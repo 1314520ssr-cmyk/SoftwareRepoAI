@@ -44,7 +44,7 @@ Java_com_localai_chat_LlamaBridge_nativeGenerate(JNIEnv *env, jobject, jbyteArra
     if (temp <= 0.01f) {
         llama_sampler_chain_add(smpl, llama_sampler_init_greedy());
     } else {
-        llama_sampler_chain_add(smpl, llama_sampler_init_penalties(64, repeatPenalty, 0.0f, 0.0f));
+        llama_sampler_chain_add(smpl, llama_sampler_init_penalties(llama_vocab_n_tokens(vocab), 64, repeatPenalty, 0.0f, 0.0f));
         llama_sampler_chain_add(smpl, llama_sampler_init_top_k(topK));
         llama_sampler_chain_add(smpl, llama_sampler_init_top_p(topP, 1));
         llama_sampler_chain_add(smpl, llama_sampler_init_temp(temp));
