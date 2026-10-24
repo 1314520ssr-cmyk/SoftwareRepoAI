@@ -28,7 +28,6 @@ Java_com_localai_chat_LlamaBridge_nativeLoad(JNIEnv *env, jobject, jstring jpath
     free_all();
     const char *path = env->GetStringUTFChars(jpath, nullptr);
     llama_model_params mp = llama_model_default_params();
-    mp.use_mmap = true;
     mp.n_gpu_layers = 0;
     g_engine.model = llama_model_load_from_file(path, mp);
     env->ReleaseStringUTFChars(jpath, path);
