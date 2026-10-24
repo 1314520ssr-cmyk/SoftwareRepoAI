@@ -38,7 +38,7 @@ fun SettingsScreen(vm: ChatViewModel, onBack: () -> Unit) {
             SliderRow("Top P", "%.2f".format(s.topP), s.topP, 0.5f..1f) { v ->
                 vm.settings.update { it.copy(topP = v) }
             }
-            SliderRow("重复惩罚", "%.2f".format(s.repeatPenalty), s.repeatPenalty, 1f..1.3f) { v ->
+            SliderRow("防复读", "%.2f".format(s.repeatPenalty), s.repeatPenalty, 1f..1.3f) { v ->
                 vm.settings.update { it.copy(repeatPenalty = v) }
             }
             SliderRow("最大回答长度", "${s.maxTokens}", s.maxTokens.toFloat(), 128f..2048f) { v ->
