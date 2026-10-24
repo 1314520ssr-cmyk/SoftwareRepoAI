@@ -1,0 +1,8 @@
+*.gguf
+build/
+.gradle/
+.idea/
+*.iml
+local.properties
+app/.cxx/
+app/src/main/cpp/llama.cpp/
